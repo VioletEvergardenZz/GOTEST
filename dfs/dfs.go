@@ -9,7 +9,7 @@ import (
 var quire = "test"
 var matches int
 var workerCount = 0
-var maxWorkerCount = 32
+var maxWorkerCount = 16
 var searchRequest = make(chan string) //任务队列
 var workerDone = make(chan bool)      //工人完成工作
 var foundMatch = make(chan bool)      //找到匹配
