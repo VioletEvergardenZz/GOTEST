@@ -1,13 +1,28 @@
 package main
 
 import (
-	"GOTEST/chanTest"
-	"GOTEST/dfs"
+	"GOTEST/interfaceTest"
 )
 
 func main() {
-	dfs.Dfs()
+	/**
+	"GOTEST/chanTest"
+	*/
+	//dfs.Dfs()
 	//dfs.DfsDemo()
-	chanTest.ChanTest1()
+
+	/**
+	"GOTEST/chanTest"
+	*/
+	//chanTest.ChanTest1()
 	//chanTest.ChanTest2()
+
+	/**
+	"GOTEST/interfaceTest"
+	*/
+	dog := Animal.Dog{Name: "Buddy"}
+	cat := Animal.Cat{Name: "Misty"}
+	// 两个结构都满足 Animal 接口
+	Animal.DescribeAnimal(dog)
+	Animal.DescribeAnimal(cat)
 }
