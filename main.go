@@ -2,6 +2,7 @@ package main
 
 import (
 	"GOTEST/typeTest"
+	"strconv"
 )
 
 func main() {
@@ -43,4 +44,16 @@ func main() {
 	}
 	wrapedAdd := typeTest.Wrap(add) //fnInner(),返回值类型 func(...any),记录了它要调用的 fn（也就是 add）
 	wrapedAdd(3, 4)                 //fnInner 真正被执行,params := []any{3, 4}
+
+	//适配器，桥接两个不兼容的函数签名
+	testFn := func(num int, abc string) string {
+		return strconv.Itoa(num) + abc //将整数转换为字符串
+	}
+	adapter := func(params ...any) any {
+		num := params[0].(int)
+		abc := params[1].(string)
+		return testFn(num, abc)
+	}
+	wrapedAdapter := typeTest.Wrap(adapter)
+	wrapedAdapter(43, "fff")
 }
