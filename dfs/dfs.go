@@ -10,14 +10,14 @@ var quire = "test"
 var matches int
 var workerCount = 0
 var maxWorkerCount = 32
-var searchRequest = make(chan string)
-var workerDone = make(chan bool)
-var foundMatch = make(chan bool)
+var searchRequest = make(chan string) //任务队列
+var workerDone = make(chan bool)      //工人完成工作
+var foundMatch = make(chan bool)      //找到匹配
 
 func Dfs() {
 	start := time.Now()
 	workerCount = 1
-	go search("/", true)
+	go search("/", true) //指派任务
 	waitForWorkers()
 	fmt.Println(matches, "matches")
 	fmt.Println("time:", time.Since(start))
