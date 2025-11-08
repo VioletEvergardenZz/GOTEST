@@ -7,6 +7,7 @@ import (
 
 func main() {
 	dfs.Dfs()
+	//dfs.DfsDemo()
 	chanTest.ChanTest1()
-	chanTest.ChanTest2()
+	//chanTest.ChanTest2()
 }

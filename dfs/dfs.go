@@ -17,7 +17,7 @@ var foundMatch = make(chan bool)
 func Dfs() {
 	start := time.Now()
 	workerCount = 1
-	go search("/Users/zhangzhiyu/", true)
+	go search("/", true)
 	waitForWorkers()
 	fmt.Println(matches, "matches")
 	fmt.Println("time:", time.Since(start))
